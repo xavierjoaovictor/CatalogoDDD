@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{0107B6EE-427A-48C5-AAB2-4CAAF7FDE9FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Services", "1 - Services", "{B1467D18-7CA8-48AD-86A1-2B144CA74BE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{BE10C02E-FC51-4C12-8018-2EE403290395}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{B433DD03-19E8-4331-9FFC-7D519DAB565A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{AC0AF331-E4DC-4557-B1D0-8EA59AB94387}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{BEFFC1C1-00D9-4C04-94E1-79DA2ED02443}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{8D4DCC6F-A951-4537-B0F6-1764EA11AC59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogoDDD.MVC", "CatalogoDDD.MVC\CatalogoDDD.MVC.csproj", "{8C84D0A7-821C-4FA1-BC45-4042F13BFA8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogoDDD.Domain", "CatalogoDDD.Domain\CatalogoDDD.Domain.csproj", "{6970A874-83E6-41E3-B0B3-ECD878FE96DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogoDDD.Infra.Data", "CatalogoDDD.Infra.Data\CatalogoDDD.Infra.Data.csproj", "{B0D8A8A4-642A-4246-B692-82A2BFA3979C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogoDDD.Application", "CatalogoDDD.Application\CatalogoDDD.Application.csproj", "{995470F5-8817-46EE-BBD7-E82433AB4099}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C84D0A7-821C-4FA1-BC45-4042F13BFA8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C84D0A7-821C-4FA1-BC45-4042F13BFA8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C84D0A7-821C-4FA1-BC45-4042F13BFA8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C84D0A7-821C-4FA1-BC45-4042F13BFA8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6970A874-83E6-41E3-B0B3-ECD878FE96DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6970A874-83E6-41E3-B0B3-ECD878FE96DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6970A874-83E6-41E3-B0B3-ECD878FE96DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6970A874-83E6-41E3-B0B3-ECD878FE96DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0D8A8A4-642A-4246-B692-82A2BFA3979C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0D8A8A4-642A-4246-B692-82A2BFA3979C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0D8A8A4-642A-4246-B692-82A2BFA3979C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0D8A8A4-642A-4246-B692-82A2BFA3979C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{995470F5-8817-46EE-BBD7-E82433AB4099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995470F5-8817-46EE-BBD7-E82433AB4099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995470F5-8817-46EE-BBD7-E82433AB4099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995470F5-8817-46EE-BBD7-E82433AB4099}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BEFFC1C1-00D9-4C04-94E1-79DA2ED02443} = {AC0AF331-E4DC-4557-B1D0-8EA59AB94387}
+		{8D4DCC6F-A951-4537-B0F6-1764EA11AC59} = {AC0AF331-E4DC-4557-B1D0-8EA59AB94387}
+		{8C84D0A7-821C-4FA1-BC45-4042F13BFA8A} = {0107B6EE-427A-48C5-AAB2-4CAAF7FDE9FC}
+		{6970A874-83E6-41E3-B0B3-ECD878FE96DC} = {B433DD03-19E8-4331-9FFC-7D519DAB565A}
+		{B0D8A8A4-642A-4246-B692-82A2BFA3979C} = {BEFFC1C1-00D9-4C04-94E1-79DA2ED02443}
+		{995470F5-8817-46EE-BBD7-E82433AB4099} = {BE10C02E-FC51-4C12-8018-2EE403290395}
+	EndGlobalSection
+EndGlobal
