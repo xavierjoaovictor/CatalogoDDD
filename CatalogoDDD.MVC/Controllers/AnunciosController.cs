@@ -3,21 +3,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
+using CatalogoDDD.Application.Interfaces;
+using CatalogoDDD.Domain.Entities;
+using CatalogoDDD.MVC.ViewModels;
 
 namespace CatalogoDDD.MVC.Controllers
 {
     public class AnunciosController : Controller
     {
+
+        private readonly IClienteAppService _clienteApp;
+        private readonly IAnuncioAppService _anuncioApp;
+
+
+        public AnunciosController(IAnuncioAppService anuncioApp, IClienteAppService clienteApp)
+        {
+            _anuncioApp = anuncioApp;
+            _clienteApp = clienteApp;
+        }
         // GET: Anuncios
         public ActionResult Index()
         {
-            return View();
+            var anuncioViewModel = Mapper.Map<IEnumerable<Anuncio>, IEnumerable<AnuncioViewModel>>(_anuncioApp.GetAll());
+
+            return View(anuncioViewModel);
         }
 
         // GET: Anuncios/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var anuncio = _anuncioApp.GetById(id);
+            var anuncioViewModel = Mapper.Map<Anuncio, AnuncioViewModel>(anuncio);
+            return View(anuncioViewModel);
         }
 
         // GET: Anuncios/Create
@@ -28,18 +46,15 @@ namespace CatalogoDDD.MVC.Controllers
 
         // POST: Anuncios/Create
         [HttpPost] 
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(AnuncioViewModel anuncio)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            if (!ModelState.IsValid)
+                return View(anuncio);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var novoAnuncio = Mapper.Map<AnuncioViewModel, Anuncio>(anuncio);
+            _anuncioApp.Add(novoAnuncio);
+            return RedirectToAction("Index");
         }
 
         // GET: Anuncios/Edit/5
