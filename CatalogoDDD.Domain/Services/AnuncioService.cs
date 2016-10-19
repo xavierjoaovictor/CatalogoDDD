@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using CatalogoDDD.Domain.Entities;
 using CatalogoDDD.Domain.Interfaces.Repositories;
 using CatalogoDDD.Domain.Interfaces.Services;

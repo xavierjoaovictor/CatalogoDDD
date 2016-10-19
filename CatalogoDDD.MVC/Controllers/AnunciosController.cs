@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
 using CatalogoDDD.Application.Interfaces;
@@ -41,6 +38,7 @@ namespace CatalogoDDD.MVC.Controllers
         // GET: Anuncios/Create
         public ActionResult Create()
         {
+            ViewBag.ClienteId = new SelectList(_clienteApp.GetAll(), "ClienteId", "Nome");
             return View();
         }
 
@@ -50,7 +48,10 @@ namespace CatalogoDDD.MVC.Controllers
         public ActionResult Create(AnuncioViewModel anuncio)
         {
             if (!ModelState.IsValid)
+            {
+                ViewBag.ClienteId = new SelectList(_clienteApp.GetAll(), "ClienteId", "Nome", anuncio.ClienteId);
                 return View(anuncio);
+            }
 
             var novoAnuncio = Mapper.Map<AnuncioViewModel, Anuncio>(anuncio);
             _anuncioApp.Add(novoAnuncio);
@@ -60,45 +61,38 @@ namespace CatalogoDDD.MVC.Controllers
         // GET: Anuncios/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var anuncio = _anuncioApp.GetById(id);
+            var anuncioViewModel = Mapper.Map<Anuncio, AnuncioViewModel>(anuncio);
+            return View(anuncioViewModel);
         }
 
         // POST: Anuncios/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(AnuncioViewModel anuncio)
         {
-            try
-            {
-                // TODO: Add update logic here
+            if (!ModelState.IsValid)
+                return View(anuncio);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var novoAnuncio = Mapper.Map<AnuncioViewModel, Anuncio>(anuncio);
+            _anuncioApp.Update(novoAnuncio);
+            return View(Mapper.Map<Anuncio, AnuncioViewModel>(novoAnuncio));
         }
 
         // GET: Anuncios/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var anuncio = _anuncioApp.GetById(id);
+            var anuncioViewModel = Mapper.Map<Anuncio, AnuncioViewModel>(anuncio);
+            return View(anuncioViewModel);
         }
 
         // POST: Anuncios/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            _anuncioApp.Remove(_anuncioApp.GetById(id));
+            return RedirectToAction("Index");
         }
     }
 }

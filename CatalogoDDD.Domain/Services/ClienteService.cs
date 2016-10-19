@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CatalogoDDD.Domain.Entities;
 using CatalogoDDD.Domain.Interfaces.Repositories;
 using CatalogoDDD.Domain.Interfaces.Services;
@@ -20,7 +17,10 @@ namespace CatalogoDDD.Domain.Services
 
         public IEnumerable<Cliente> ObterClientesVIPs(IEnumerable<Cliente> clientes)
         {
-            return clientes.Where(c => c.ClienteVIP(c));
+            var clientesVips = Enumerable.Empty<Cliente>();
+            clientesVips = clientes.Where(c => c.ClienteVIP(c));
+
+            return clientesVips.Any() ? clientesVips : null;
         }
     }
 }

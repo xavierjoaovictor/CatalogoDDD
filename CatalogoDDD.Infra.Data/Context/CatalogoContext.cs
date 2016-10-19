@@ -59,9 +59,5 @@ namespace CatalogoDDD.Infra.Data.Context
 
             return base.SaveChanges();
         }
-
-        public System.Data.Entity.DbSet<CatalogoDDD.MVC.ViewModels.AnuncioViewModel> AnuncioViewModels { get; set; }
-
-        public System.Data.Entity.DbSet<CatalogoDDD.MVC.ViewModels.ClienteViewModel> ClienteViewModels { get; set; }
     }
 }

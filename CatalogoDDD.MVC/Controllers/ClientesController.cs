@@ -26,7 +26,8 @@ namespace CatalogoDDD.MVC.Controllers
         // GET: ClientesVIPs
         public ActionResult VIPs()
         {
-            var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteApp.ObterClientesVIPs());
+            var clientes = _clienteApp.ObterClientesVIPs();
+            var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(clientes);
             return View(clienteViewModel);
         }
 

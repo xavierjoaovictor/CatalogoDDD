@@ -1,5 +1,4 @@
 ﻿using CatalogoDDD.Domain.Entities;
-using CatalogoDDD.Domain.Interfaces;
 using CatalogoDDD.Domain.Interfaces.Repositories;
 
 namespace CatalogoDDD.Infra.Data.Repositories

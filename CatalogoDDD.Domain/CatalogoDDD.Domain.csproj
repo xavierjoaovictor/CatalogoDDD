@@ -31,7 +31,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Entities\Anuncio.cs" />
+    <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\Endereco.cs" />
     <Compile Include="Interfaces\Repositories\IAnuncioRepository.cs" />
     <Compile Include="Interfaces\Repositories\IClienteRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
