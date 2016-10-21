@@ -14,9 +14,9 @@ namespace CatalogoDDD.Application
             _clienteService = clienteService;
         }
 
-        public IEnumerable<Cliente> ObterClientesVIPs()
-        {
-            return _clienteService.ObterClientesVIPs(_clienteService.GetAll());
-        }
+//        public IEnumerable<Cliente> ObterClientesVIPs()
+//        {
+//            return _clienteService.ObterClientesVIPs(_clienteService.GetAll());
+//        }
     }
 }

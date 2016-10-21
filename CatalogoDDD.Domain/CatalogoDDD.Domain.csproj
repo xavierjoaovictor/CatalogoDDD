@@ -34,6 +34,7 @@
     <Compile Include="Entities\Categoria.cs" />
     <Compile Include="Entities\Cliente.cs" />
     <Compile Include="Entities\Endereco.cs" />
+    <Compile Include="Entities\Pagamento.cs" />
     <Compile Include="Interfaces\Repositories\IAnuncioRepository.cs" />
     <Compile Include="Interfaces\Repositories\IClienteRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
@@ -44,7 +45,7 @@
     <Compile Include="Services\AnuncioService.cs" />
     <Compile Include="Services\ClienteService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
-    <Compile Include="Util\NaturezaClienteEnum.cs" />
+    <Compile Include="Util\TipoAnuncio.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

@@ -17,9 +17,7 @@ namespace CatalogoDDD.MVC.ViewModels
 
         [ScaffoldColumn(false)]
         public DateTime DataCadastro { get; set; }
-
-        public NaturezaClienteEnum Natureza { get; set; }
-
+         
         public virtual IEnumerable<AnuncioViewModel> Anuncios { get; set; }
 
     }

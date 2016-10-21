@@ -11,9 +11,7 @@ namespace CatalogoDDD.Domain.Entities
         public virtual Cliente Cliente { get; set; }
 
         public int ClienteId { get; set; }
-
-        public int EnderecoId { get; set; }
-
+        
         public int CEP { get; set; }
 
         public string Logradouro { get; set; }

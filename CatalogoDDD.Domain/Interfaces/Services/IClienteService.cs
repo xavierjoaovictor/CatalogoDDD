@@ -5,6 +5,6 @@ namespace CatalogoDDD.Domain.Interfaces.Services
 {
     public interface IClienteService : IServiceBase<Cliente>
     {
-        IEnumerable<Cliente> ObterClientesVIPs(IEnumerable<Cliente> clientes);
+//        IEnumerable<Cliente> ObterClientesVIPs(IEnumerable<Cliente> clientes);
     }
 }

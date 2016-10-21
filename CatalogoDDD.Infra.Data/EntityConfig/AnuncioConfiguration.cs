@@ -7,13 +7,16 @@ namespace CatalogoDDD.Infra.Data.EntityConfig
     {
         public AnuncioConfiguration()
         {
-            HasKey(a => a.AnuncioId);
-
-            Property(a => a.Descricao).IsRequired();
-
+            HasKey(anuncio => anuncio.AnuncioId);
+            
             HasRequired(a => a.Cliente)
                 .WithMany()
                 .HasForeignKey(a => a.ClienteId);
+
+            HasRequired(a => a.Categoria)
+                .WithMany()
+                .HasForeignKey(a => a.CategoriaId);
+
         }
     }
 }

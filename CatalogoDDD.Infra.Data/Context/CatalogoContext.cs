@@ -15,31 +15,26 @@ namespace CatalogoDDD.Infra.Data.Context
         }
 
         public DbSet<Cliente> Clientes { get; set; }
-
-        public DbSet<Anuncio> Anuncios
-        {
-            get;
-            set;
-        }
-
+        public DbSet<Anuncio> Anuncios { get; set; }
+        public DbSet<Pagamento> Pagamentos { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<Categoria> Categorias { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();//Produtos -> Produtoes
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
-
-            modelBuilder.Properties()
-                .Where(a => a.Name == a.ReflectedType.Name + "Id")
-                .Configure(a => a.IsKey());
-
+            
             modelBuilder.Properties<string>()
                 .Configure(a => a.HasColumnType("varchar"));
-
-            modelBuilder.Properties<string>()
-                .Configure(a => a.HasMaxLength(100));
-
+            
             modelBuilder.Configurations.Add(new ClienteConfiguration());
             modelBuilder.Configurations.Add(new AnuncioConfiguration());
+            modelBuilder.Configurations.Add(new CategoriaConfiguration());
+            modelBuilder.Configurations.Add(new PagamentoConfiguration());
+            modelBuilder.Configurations.Add(new EnderecoConfiguration());
+
         }
 
         public override int SaveChanges()

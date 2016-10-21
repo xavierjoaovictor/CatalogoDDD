@@ -15,12 +15,12 @@ namespace CatalogoDDD.Domain.Services
             _clienteRepository = clienteRepository;
         }
 
-        public IEnumerable<Cliente> ObterClientesVIPs(IEnumerable<Cliente> clientes)
-        {
-            var clientesVips = Enumerable.Empty<Cliente>();
-            clientesVips = clientes.Where(c => c.ClienteVIP(c));
-
-            return clientesVips.Any() ? clientesVips : null;
-        }
+//        public IEnumerable<Cliente> ObterClientesVIPs(IEnumerable<Cliente> clientes)
+//        {
+//            var clientesVips = Enumerable.Empty<Cliente>();
+//            clientesVips = clientes.Where(c => c.ClienteVIP(c));
+//
+//            return clientesVips.Any() ? clientesVips : null;
+//        }
     }
 }

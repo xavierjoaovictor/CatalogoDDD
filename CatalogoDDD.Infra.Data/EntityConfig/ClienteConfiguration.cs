@@ -9,10 +9,8 @@ namespace CatalogoDDD.Infra.Data.EntityConfig
         {
             HasKey(c => c.ClienteId);
 
-            Property(c => c.Nome).IsRequired().HasMaxLength(150);
-
-            Property(c => c.Natureza).IsRequired();
-
+            HasRequired(c => c.Endereco)
+                .WithRequiredPrincipal(endereco => endereco.Cliente);
         }
     }
 }

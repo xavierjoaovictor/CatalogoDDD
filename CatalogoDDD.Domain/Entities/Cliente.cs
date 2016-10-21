@@ -9,7 +9,7 @@ namespace CatalogoDDD.Domain.Entities
     {
         public int ClienteId { get; set; }
 
-        public string NomeFantasaia { get; set; }
+        public string NomeFantasia { get; set; }
 
         public DateTime DataCadastro  { get; set; }
 
@@ -27,13 +27,9 @@ namespace CatalogoDDD.Domain.Entities
 
         public int Telefone { get; set; }
 
-        public virtual IEnumerable<Anuncio> Anuncios { get; set; }
-
         public virtual Endereco Endereco { get; set; }
+
+        public virtual IEnumerable<Anuncio> Anuncios { get; set; }
         
-        public bool ClienteVIP(Cliente cliente)
-        {
-            return cliente.Anuncios.Any(c => c.ValorPago > 0);
-        }
     }
 }

@@ -22,14 +22,14 @@ namespace CatalogoDDD.MVC.Controllers
             var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteApp.GetAll());
             return View(clienteViewModel);
         }
-
-        // GET: ClientesVIPs
-        public ActionResult VIPs()
-        {
-            var clientes = _clienteApp.ObterClientesVIPs();
-            var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(clientes);
-            return View(clienteViewModel);
-        }
+//
+//        // GET: ClientesVIPs
+//        public ActionResult VIPs()
+//        {
+//            var clientes = _clienteApp.ObterClientesVIPs();
+//            var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(clientes);
+//            return View(clienteViewModel);
+//        }
 
         // GET: Clientes/Details/5
         public ActionResult Details(int id)
