@@ -3,8 +3,8 @@
     public enum TipoAnuncio : int
     {
         Gratuito = 0,
-        Semanal = 1,
-        Quinzenal = 2,
-        Mensal = 3
+        Semanal = 7,
+        Quinzenal = 15,
+        Mensal = 30
     }
 }

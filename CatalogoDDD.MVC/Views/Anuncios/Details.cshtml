@@ -7,17 +7,9 @@
 <h2>Details</h2>
 
 <div>
-    <h4>AnuncioViewModel</h4>
+    <h4>Detalhes Anúncio</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cliente.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Cliente.Nome)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Descricao)
         </dt>
@@ -27,31 +19,48 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DataInicial)
+            @Html.DisplayNameFor(model => model.Cliente.NomeFantasia)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DataInicial)
+            @Html.DisplayFor(model => model.Cliente.NomeFantasia)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DataFinal)
+            @Html.DisplayNameFor(model => model.Imagem)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DataFinal)
+            @Html.DisplayFor(model => model.Imagem)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ValorPago)
+            @Html.DisplayNameFor(model => model.Categoria.Descricao)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ValorPago)
+            @Html.DisplayFor(model => model.Categoria.Descricao)
         </dd>
 
     </dl>
 </div>
+<h4>Pagamentos</h4>
+<hr />
+<dl class="dl-horizontal">
+    @foreach (var item in Model.Pagamentos)
+    {
+        <dt>@Html.DisplayNameFor(modelItem => item.Valor)</dt>
+        <dd>@Html.DisplayFor(modelItem => item.Valor)</dd>
+
+        <dt>@Html.DisplayNameFor(modelItem => item.DataPagamento)</dt>
+        <dd>@Html.DisplayFor(modelItem => item.DataPagamento)</dd>
+        if (item.DataExpiracao != item.DataPagamento)
+        {
+            <dt>@Html.DisplayNameFor(modelItem => item.DataExpiracao)</dt>
+            <dd>@Html.DisplayFor(modelItem => item.DataExpiracao)</dd>
+        }
+    }
+</dl>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.AnuncioId }) |
     @Html.ActionLink("Back to List", "Index")

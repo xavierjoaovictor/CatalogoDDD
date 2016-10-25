@@ -39,7 +39,7 @@ namespace CatalogoDDD.Infra.Data.Migrations
                 Bairro = "Varzea",
                 Logradouro = "Rua da Varzea",
                 Complemento = "Casa",
-                Numero = 150,
+                Numero = count,
                 Cliente = cli
             };
 

@@ -188,7 +188,10 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AnuncioViewModel.cs" />
+    <Compile Include="ViewModels\CategoriaViewModel.cs" />
     <Compile Include="ViewModels\ClienteViewModel.cs" />
+    <Compile Include="ViewModels\EnderecoViewModel.cs" />
+    <Compile Include="ViewModels\PagamentoViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -237,9 +240,6 @@
     <Content Include="Views\Clientes\Edit.cshtml" />
     <Content Include="Views\Anuncios\Index.cshtml" />
     <Content Include="Views\Anuncios\Details.cshtml" />
-    <Content Include="Views\Anuncios\Create.cshtml" />
-    <Content Include="Views\Anuncios\Edit.cshtml" />
-    <Content Include="Views\Anuncios\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

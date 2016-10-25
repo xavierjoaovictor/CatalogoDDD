@@ -12,6 +12,9 @@ namespace CatalogoDDD.MVC.AutoMapper
         {
             CreateMap<ClienteViewModel, Cliente>();
             CreateMap<AnuncioViewModel, Anuncio>();
+            CreateMap<CategoriaViewModel, Categoria>();
+            CreateMap<PagamentoViewModel, Pagamento>();
+            CreateMap<EnderecoViewModel, Endereco>();
         }
     }
 }

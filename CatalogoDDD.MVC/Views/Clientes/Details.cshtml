@@ -7,17 +7,59 @@
 <h2>Details</h2>
 
 <div>
-    <h4>ClienteViewModel</h4>
+    <h4>Cliente</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Nome)
+            @Html.DisplayNameFor(model => model.NomeFantasia)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Nome)
+            @Html.DisplayFor(model => model.NomeFantasia)
         </dd>
+    </dl>
+</div>
+<div>
+    <h4>Anúncios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in Model.Anuncios)
+        {
+            <dt> @Html.DisplayNameFor(modelItem => item.Descricao) </dt>
+            <dd>@Html.ActionLink(item.Descricao,"Details", "Anuncios", new {id = item.AnuncioId}, null)</dd>
 
+            <dt> Categoria </dt>
+            <dd>@Html.DisplayFor(modelItem => item.Categoria.Descricao)</dd>
+
+            <dt> @Html.DisplayNameFor(modelItem => item.Pagamentos.FirstOrDefault().DataPagamento) </dt>
+            <dd>@Html.DisplayFor(modelItem => item.Pagamentos.FirstOrDefault().DataPagamento)</dd>
+
+            <dt> @Html.DisplayNameFor(modelItem => item.Pagamentos.FirstOrDefault().DataExpiracao) </dt>
+            <dd>@Html.DisplayFor(modelItem => item.Pagamentos.FirstOrDefault().DataExpiracao)</dd>
+        }
+    </dl>
+</div>
+<div>
+    <h4>Endereço</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt> @Html.DisplayNameFor(modelItem => modelItem.Endereco.CEP) </dt>
+        <dd>@Html.DisplayFor(modelItem => modelItem.Endereco.CEP)</dd>
+
+        <dt> @Html.DisplayNameFor(modelItem => modelItem.Endereco.Cidade) </dt>
+        <dd>@Html.DisplayFor(modelItem => modelItem.Endereco.Cidade)</dd>
+
+        <dt> @Html.DisplayNameFor(modelItem => modelItem.Endereco.Bairro) </dt>
+        <dd>@Html.DisplayFor(modelItem => modelItem.Endereco.Bairro)</dd>
+
+        <dt> @Html.DisplayNameFor(modelItem => modelItem.Endereco.Logradouro) </dt>
+        <dd>@Html.DisplayFor(modelItem => modelItem.Endereco.Logradouro)</dd>
+
+        <dt> @Html.DisplayNameFor(modelItem => modelItem.Endereco.Numero) </dt>
+        <dd>@Html.DisplayFor(modelItem => modelItem.Endereco.Numero)</dd>
+
+        <dt> @Html.DisplayNameFor(modelItem => modelItem.Endereco.Complemento) </dt>
+        <dd>@Html.DisplayFor(modelItem => modelItem.Endereco.Complemento)</dd>
     </dl>
 </div>
 <p>

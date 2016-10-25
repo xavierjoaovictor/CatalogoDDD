@@ -10,9 +10,11 @@ namespace CatalogoDDD.MVC.Controllers
     public class ClientesController : Controller
     {
         private readonly IClienteAppService _clienteApp;
+        private readonly IAnuncioAppService _anuncioApp;
 
-        public ClientesController(IClienteAppService clienteApp)
+        public ClientesController(IClienteAppService clienteApp, IAnuncioAppService anuncioApp)
         {
+            _anuncioApp = anuncioApp;
             _clienteApp = clienteApp;
         }
 
@@ -35,6 +37,9 @@ namespace CatalogoDDD.MVC.Controllers
         public ActionResult Details(int id)
         {
             var cliente = _clienteApp.GetById(id);
+            var anuncios = _anuncioApp.BuscarPorCliente(cliente);
+            cliente.Anuncios = anuncios;
+
             var clienteViewModel = Mapper.Map<Cliente, ClienteViewModel>(cliente);
             return View(clienteViewModel);
         }
