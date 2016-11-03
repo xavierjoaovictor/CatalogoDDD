@@ -42,10 +42,16 @@
   <ItemGroup>
     <Compile Include="AnuncioAppService.cs" />
     <Compile Include="AppServiceBase.cs" />
+    <Compile Include="CategoriaAppService.cs" />
     <Compile Include="ClienteAppService.cs" />
+    <Compile Include="EnderecoAppService.cs" />
     <Compile Include="Interfaces\IAnuncioAppService.cs" />
     <Compile Include="Interfaces\IAppServiceBase.cs" />
+    <Compile Include="Interfaces\ICategoriaAppService.cs" />
     <Compile Include="Interfaces\IClienteAppService.cs" />
+    <Compile Include="Interfaces\IEnderecoAppService.cs" />
+    <Compile Include="Interfaces\IPagamentoAppService.cs" />
+    <Compile Include="PagamentoAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

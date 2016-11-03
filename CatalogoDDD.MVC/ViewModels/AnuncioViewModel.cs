@@ -24,7 +24,7 @@ namespace CatalogoDDD.MVC.ViewModels
         public int CategoriaId { get; set; }
          
         public virtual CategoriaViewModel Categoria { get; set; }
-
+        
         public virtual ICollection<PagamentoViewModel> Pagamentos { get; set; }
 
     }

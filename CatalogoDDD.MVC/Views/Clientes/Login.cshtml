@@ -1,0 +1,23 @@
+﻿@model CatalogoDDD.MVC.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Clientes", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.LabelFor(a => a.Email)
+    @Html.TextBoxFor(a => a.Email)
+
+    @Html.LabelFor(a => a.Senha)
+    @Html.PasswordFor(a => a.Senha)
+
+    <input type="submit" value="Entrar"/>
+}
+
+@Html.ActionLink("Ainda nao sou cadastrado", "Create")

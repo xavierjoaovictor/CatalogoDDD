@@ -6,9 +6,12 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if (ViewBag.ClienteLogado)
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -21,7 +24,7 @@
             @Html.DisplayNameFor(model => model.Imagem)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Categoria.Descricao)
+            @Html.DisplayNameFor(model => model.Categoria)
         </th>
         <th></th>
     </tr>

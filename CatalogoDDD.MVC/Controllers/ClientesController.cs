@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using CatalogoDDD.Application.Interfaces;
@@ -18,22 +19,40 @@ namespace CatalogoDDD.MVC.Controllers
             _clienteApp = clienteApp;
         }
 
+        #region [ Index ]
         // GET: Clientes
         public ActionResult Index()
         {
             var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(_clienteApp.GetAll());
             return View(clienteViewModel);
         }
-//
-//        // GET: ClientesVIPs
-//        public ActionResult VIPs()
-//        {
-//            var clientes = _clienteApp.ObterClientesVIPs();
-//            var clienteViewModel = Mapper.Map<IEnumerable<Cliente>, IEnumerable<ClienteViewModel>>(clientes);
-//            return View(clienteViewModel);
-//        }
+        #endregion
 
-        // GET: Clientes/Details/5
+        #region [ Login ]
+        //GET
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        //Post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(LoginViewModel loginViewModel)
+        {
+            if (!ModelState.IsValid) return RedirectToAction("Login");
+            var cliente =
+                _clienteApp
+                    .GetAll()
+                    .FirstOrDefault(c => c.Email.Equals(loginViewModel.Email) && c.Senha.Equals(loginViewModel.Senha));
+
+            if (cliente == null) return RedirectToAction("Login");
+            Session["usuarioLogadoId"] = cliente.ClienteId.ToString();
+            return RedirectToAction("Index", "Anuncios");
+        }
+        #endregion
+        
+        #region [ Details ]
         public ActionResult Details(int id)
         {
             var cliente = _clienteApp.GetById(id);
@@ -43,27 +62,29 @@ namespace CatalogoDDD.MVC.Controllers
             var clienteViewModel = Mapper.Map<Cliente, ClienteViewModel>(cliente);
             return View(clienteViewModel);
         }
+        #endregion
 
+        #region [ Create ]
         // GET: Clientes/Create
         public ActionResult Create()
         {
             return View();
         }
-
+        
         // POST: Clientes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ClienteViewModel cliente)
         {
-            if (ModelState.IsValid)
-            {
-                var clienteDomain = Mapper.Map<ClienteViewModel, Cliente>(cliente);
-                _clienteApp.Add(clienteDomain);
-                return RedirectToAction("Index");
-            }
-            return View(cliente);
-        }
+            if (!ModelState.IsValid) return View(cliente);
 
+            var clienteDomain = Mapper.Map<ClienteViewModel, Cliente>(cliente);
+            _clienteApp.Add(clienteDomain);
+            return RedirectToAction("Details", clienteDomain.ClienteId);
+        }
+        #endregion
+
+        #region [ Edit ]
         // GET: Clientes/Edit/5
         public ActionResult Edit(int id)
         {
@@ -83,7 +104,9 @@ namespace CatalogoDDD.MVC.Controllers
             _clienteApp.Update(clienteDomain);
             return RedirectToAction("Index");
         }
+        #endregion
 
+        #region [ Delete ]
         // GET: Clientes/Delete/5
         public ActionResult Delete(int id)
         {
@@ -101,5 +124,6 @@ namespace CatalogoDDD.MVC.Controllers
             _clienteApp.Remove(cliente);
             return RedirectToAction("Index");
         }
+        #endregion
     }
 }

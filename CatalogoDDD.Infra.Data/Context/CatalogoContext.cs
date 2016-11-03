@@ -54,5 +54,6 @@ namespace CatalogoDDD.Infra.Data.Context
 
             return base.SaveChanges();
         }
+
     }
 }
